@@ -1,7 +1,6 @@
 #-*-coding:utf-8-*-
 
 # Button Code [S +] --------------------------------------- 
-# 필요한 라이브러리를 불러옵니다.
 import RPi.GPIO as GPIO 
 import time
 
