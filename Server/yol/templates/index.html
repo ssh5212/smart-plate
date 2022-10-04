@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>H2E | Health to Eat!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+      font-family: "Roboto", sans-serif
+    }
+  </style>
+
+</head>
+
+<body class="w3-light-grey">
+  <!-- Page Container -->
+  <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+      <!-- Left Column -->
+      <div class="w3-third">
+
+        <div class="w3-white w3-text-grey w3-card-4">
+          <div class="w3-display-container">
+          </div>
+          <div class="w3-container">
+            <h2 class="w3-text-grey w3-padding-16"><i
+                class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>개별 식사량</h2>
+
+            <div class="w3-container">
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>{{ food_name_list[0][0][0] }} (기준량 : 100g)</b></p>
+              <p><b>탄수화물 (g)</b></p>
+              <p>{{ food_data_list[0][0][0] }}</p>
+              <p><b>단백질 (g)</b></p>
+              <p>{{ food_data_list[0][0][1] }}</p>
+              <p><b>지방 (g)</b></p>
+              <p>{{ food_data_list[0][0][2] }}</p>
+              <p><b>칼로리 (kcal)</b></p>
+              <p>{{ food_data_list[0][0][3] }}</p>
+              <hr>
+
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>{{ food_name_list[1][0][0] }} (기준량 : 100g)</b></p>
+              <p><b>탄수화물 (g)</b></p>
+              <p>{{ food_data_list[1][0][0] }}</p>
+              <p><b>단백질 (g)</b></p>
+              <p>{{ food_data_list[1][0][1] }}</p>
+              <p><b>지방 (g)</b></p>
+              <p>{{ food_data_list[1][0][2] }}</p>
+              <p><b>칼로리 (kcal)</b></p>
+              <p>{{ food_data_list[1][0][3] }}</p>
+              <hr>
+
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>{{ food_name_list[2][0][0] }} (기준량 : 100g)</b></p>
+              <p><b>탄수화물 (g)</b></p>
+              <p>{{ food_data_list[2][0][0] }}</p>
+              <p><b>단백질 (g)</b></p>
+              <p>{{ food_data_list[2][0][1] }}</p>
+              <p><b>지방 (g)</b></p>
+              <p>{{ food_data_list[2][0][2] }}</p>
+              <p><b>칼로리 (kcal)</b></p>
+              <p>{{ food_data_list[2][0][3] }}</p>
+              <hr>
+
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>{{ food_name_list[3][0][0] }} (기준량 : 100g)</b></p>
+              <p><b>탄수화물 (g)</b></p>
+              <p>{{ food_data_list[3][0][0] }}</p>
+              <p><b>단백질 (g)</b></p>
+              <p>{{ food_data_list[3][0][1] }}</p>
+              <p><b>지방 (g)</b></p>
+              <p>{{ food_data_list[3][0][2] }}</p>
+              <p><b>칼로리 (kcal)</b></p>
+              <p>{{ food_data_list[3][0][3] }}</p>
+
+            </div>
+          </div>
+        </div><br>
+
+        <!-- End Left Column -->
+      </div>
+
+      <!-- Right Column -->
+      <div class="w3-twothird">
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom w3-text-grey">
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>전체 식사량</h2>
+          <div class="w3-container">
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>음식 분류 사진</b></p>
+            <img src="good.jpg" style="width:100%" alt="">
+            <img src="./good.jpg" style="width:100%">
+            <img src="good2.jpg" style="width:100%" alt="">
+            <img src="./good2.jpg" style="width:100%">
+            
+            <hr>
+          </div>
+          <div class="w3-container">
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>전체 음식 영양소 (기준 : 성인 남성 일일 권장 섭취량)</b></p>
+            <p>탄수화물 | Carbohydrate</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-blue" style="width:{{ male_avg[1] }}%">
+                <div class="w3-center w3-text-black">{{ male_avg[0] }}%</div>
+              </div>
+            </div>
+            <p>단백질 | Protein</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-blue" style="width:{{ male_avg[1] }}%">
+                <div class="w3-center w3-text-black">{{ male_avg[1] }}%</div>
+              </div>
+            </div>
+            <p>지방 | Fat</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-blue" style="width:{{ male_avg[2] }}%">
+                <div class="w3-center w3-text-black">{{ male_avg[2] }}%</div>
+              </div>
+            </div>
+            <p>칼로리 | kcal</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-blue" style="width:{{ male_avg[3] }}%">
+                <div class="w3-center w3-text-black">{{ male_avg[3] }}%</div>
+              </div>
+            </div>
+            <br>
+
+          </div>
+
+          <div class="w3-container">
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>전체 음식 영양소 (기준 : 성인 남성 일일 권장 섭취량)</b></p>
+            <p>탄수화물 | Carbohydrate</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-red" style="width:{{ female_avg[0] }}%">
+                <div class="w3-center w3-text-black">{{ female_avg[0] }}%</div>
+              </div>
+            </div>
+            <p>단백질 | Protein</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-red" style="width:{{ female_avg[1] }}%">
+                <div class="w3-center w3-text-black">{{ female_avg[1] }}%</div>
+              </div>
+            </div>
+            <p>지방 | Fat</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-red" style="width:{{ female_avg[2] }}%">
+                <div class="w3-center w3-text-black">{{ female_avg[2] }}%</div>
+              </div>
+            </div>
+            <p>칼로리 | kcal</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-pale-red" style="width:{{ female_avg[3] }}%">
+                <div class="w3-center w3-text-black">{{ female_avg[3] }}%</div>
+              </div>
+            </div>
+            <br>
+
+          </div>
+        </div>
+
+        <div class="w3-container w3-card w3-white">
+          <h2 class="w3-text-grey w3-padding-16"><i
+            class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>관련 뉴스</h2>
+          <div class="w3-container">
+            <a href="#"><h5 class="w3-opacity"><b>올빼미족, 당뇨·심장병 걸릴 위험 높다</b></h5></a>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2022. 09. 21.</h6>
+            <p>[출처 : 동아사이언스] 아침형 인간이 저녁형 인간에 비해 제2형 당뇨병과 심혈관 질환 발생 위험이 낮다는 연구결과가 나왔다. 아침에 일찍 일어날수록 지방을 에너지로 사용하는 비중이..</p>
+            <hr>
+          </div>
+          <div class="w3-container">
+            <a href="#"><h5 class="w3-opacity"><b>[밀당365] 혈당 높은데 홍삼 먹어도 되나요?</b></h5></a>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2022. 09. 19.</h6>
+            <p>[출처 : 헬스동아일보] 홍삼의 주성분인 진세노사이드는 혈당을 낮추는 효과가 있어서, 혈당을 관리하려는 분이 먹으면 좋습니다. 다만 홍삼을 가공하는 과정에서 당분이 생기기 때문에 조심해야 ..</p>
+            <hr>
+          </div>
+          <div class="w3-container">
+            <a href="#"><h5 class="w3-opacity"><b>당뇨 환자 75% “혈당 조절 어려워”… 누에 성분으로 관리하세요</b></h5></a>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2022. 09. 14.</h6>
+            <p>[출처 : 동아일보]질병관리청에 따르면 65세 이상 인구 중 51%가 당뇨를 앓고 있거나 당뇨 전단계인 것으로 나타났다. 당뇨는 나이 들수록 발병 위험이 커지는 데다 상태가 악화할 때까지 특별한 증상이 나타나지 않아 ..</p><br>
+          </div>
+        </div>
+
+        <!-- End Right Column -->
+      </div>
+
+      <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+  </div>
+
+  <footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p><b>H2E</b> | Health to Eat!</p>
+    <a href="https://sites.google.com/view/k-mhealth/%ED%99%88"><i class="fa fa-internet-explorer w3-hover-opacity" style='font-size:30px'></i></a>
+    <span>&nbsp;</span>
+    <a href="https://www.youtube.com/channel/UC9B4RTObgh82-sQMfoBwseA"><i class="fa fa-youtube w3-hover-opacity" style='font-size:30px'></i></a>
+    <span>&nbsp;</span>
+    <a href="https://github.com/ssh5212"><i class="fa fa-github-square w3-hover-opacity" style='font-size:30px'></i></a>
+
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" >w3.css</a></p>
+  </footer>
+
+</body>
+
+</html>
