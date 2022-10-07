@@ -4,6 +4,11 @@ import picamera
 import sys
 from hx711 import HX711
 
+import cv2
+import socket
+import numpy as np
+
+
 # button_callback function
 def button_callback(channel):
     # Camera Code [S] --------------------------------------- 
@@ -29,6 +34,7 @@ def button_callback(channel):
 
     print("Tare done! Add weight now...")
 
+    # Socket Client Code [S] --------------------------------------- 
     try:
         val = hx.get_weight(5)
         print(val)
@@ -36,6 +42,20 @@ def button_callback(channel):
         hx.power_up()
         time.sleep(0.1)
 
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(10)
+        s.connect(('192.168.0.162',8485))
+    
+        cam = cv2.imread('sajin2.png')
+        
+        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+        frame=cam
+        result, frame = cv2.imencode('.jpg', frame, encode_param)
+        data = np.array(frame)
+        stringData = data.tostring()
+        s.sendall((str(len(stringData))).encode().ljust(16) + stringData)
+    # Socket Client Code [E] --------------------------------------- 
+        
     except (KeyboardInterrupt, SystemExit):
         cleanAndExit()
     # HX711 Code [E] --------------------------------------- 

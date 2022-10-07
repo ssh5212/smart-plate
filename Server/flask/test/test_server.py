@@ -15,7 +15,7 @@ def recvall(sock, count):
     return buf
 
 
-HOST = '192.168.0.160'
+HOST = '192.168.0.162'
 PORT = 8485
 
 # TCP 사용
@@ -33,13 +33,11 @@ print('Socket now listening')
 # 연결, conn에는 소켓 객체, addr은 소켓에 바인드 된 주소
 conn, addr = s.accept()
 
-while True:
-    # client에서 받은 stringData의 크기 (==(str(len(stringData))).encode().ljust(16))
-    length = recvall(conn, 16)
-    stringData = recvall(conn, int(length))
-    data = np.fromstring(stringData, dtype='uint8')
-
+# client에서 받은 stringData의 크기 (==(str(len(stringData))).encode().ljust(16))
+length = recvall(conn, 16)
+stringData = recvall(conn, int(length))
+data = np.fromstring(stringData, dtype='uint8')
     # data를 디코딩한다.
-    frame = cv2.imdecode(data, cv2.IMREAD_COLOR)
-    cv2.imshow('ImageWindow', frame)
-    cv2.waitKey(1)
+frame = cv2.imdecode(data, cv2.IMREAD_COLOR)
+cv2.imwrite('Image.png', frame)
+
