@@ -14,10 +14,9 @@
 - Python 3.8.13
 
 ### 개발 환경 & IDE
-- Anaconda
 - Windows 10
 - Visual Studio Code 1.72.0
-
+- Anaconda For Windows
 
 ### 프레임워크 및 라이브러리
 - flask==2.2.2
