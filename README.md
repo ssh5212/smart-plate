@@ -14,9 +14,11 @@
 - Python 3.8.13
 
 ### 개발 환경 & IDE
+- AMD Ryzen 7 5800X + NVIDIA RTX 3060
 - Windows 10
 - Visual Studio Code 1.72.0
 - Anaconda For Windows
+- Raspberry Pi 4 Model B
 
 ### 프레임워크 및 라이브러리
 - flask==2.2.2
