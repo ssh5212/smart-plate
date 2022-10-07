@@ -61,7 +61,10 @@ food_data_list = []
 food_name_list = []
 male_total_nutrient = [130, 65, 54, 2600]
 female_total_nutrient = [130, 55, 54, 2000]
-food_weight = [100, 100, 100, 100] # socket으로 받아오기
+food_first_weight = [219, 235, 63, 153]
+food_last_weight = [29, 127, 5, 30]
+food_weight = [food_first_weight[0]-food_last_weight[0], food_first_weight[1]-food_last_weight[1], food_first_weight[2]-food_last_weight[2], food_first_weight[3]-food_last_weight[3]]
+
 
 male_avg = []
 female_avg = []
@@ -93,8 +96,8 @@ for i in food_eng_list:
 
     
 for i in range(4):
-    male_avg.append( int((food_data_list[0][0][i] + food_data_list[1][0][i] + food_data_list[2][0][i] + food_data_list[3][0][i]) / male_total_nutrient[i] * 100) )
-    female_avg.append( int((food_data_list[0][0][i] + food_data_list[1][0][i] + food_data_list[2][0][i] + food_data_list[3][0][i]) / female_total_nutrient[i] * 100) )
+    male_avg.append( int((food_data_list[0][0][i] *food_weight[i]/100 + food_data_list[1][0][i]*food_weight[i]/100 + food_data_list[2][0][i]*food_weight[i]/100 + food_data_list[3][0][i]*food_weight[i]/100) / male_total_nutrient[i] * 100) )
+    female_avg.append( int((food_data_list[0][0][i]*food_weight[i]/100 + food_data_list[1][0][i]*food_weight[i]/100 + food_data_list[2][0][i]*food_weight[i]/100 + food_data_list[3][0][i]*food_weight[i]/100) / female_total_nutrient[i] * 100) )
 
 for i in range(4):
     if male_avg[i] > 100:
@@ -107,7 +110,7 @@ app = Flask(__name__) # 플라스크 어플리케이션 생성 코드
 
 @app.route('/') # 특정 url에 접속하면 다음 줄에 있는 함수를 호출
 def main():
-	return render_template("index.html", food_data_list=food_data_list, food_name_list=food_name_list, male_avg=male_avg, female_avg=female_avg, image_path=image_path)
+	return render_template("index.html", food_data_list=food_data_list, food_name_list=food_name_list, male_avg=male_avg, female_avg=female_avg, image_path=image_path, food_weight=food_weight)
 
 if __name__ == "__main__": # 직접 실행이면 웹 서버 실행
 	app.run(host="0.0.0.0", port=5500, debug=False)
