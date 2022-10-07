@@ -9,7 +9,7 @@ import numpy as np
 
 
 
-# socket
+# Socket Server [S] --------------------------------------- 
 def recvall(sock, count):
     # 바이트 문자열
     buf = b''
@@ -37,10 +37,12 @@ stringData = recvall(conn, int(length))
 data = np.fromstring(stringData, dtype='uint8')
 frame = cv2.imdecode(data, cv2.IMREAD_COLOR)
 cv2.imwrite('Image.png', frame)
+# Socket Server [E] --------------------------------------- 
 
 
 
-# yolo를 통한 음식 이름 받아오기
+# Food Classification (Yolov5) [S] --------------------------------------- 
+# 음식 이름 정보 받아오기
 food_eng_list = os.popen('python D:/dang/yolo/detect.py --weights "D:/dang/yolo/runs/train/exp3/weights/best.pt" --source "D:/dang/yolo/ttest/"').read() 
 food_eng_list = food_eng_list.split('\n')
 food_eng_list.pop()
@@ -50,6 +52,7 @@ image_path = "D://dang/yolo/runs/detect/" + image_path[-1] + "/1.jpg"
 
 print(image_path)
 food_eng_list = food_eng_list[1:]
+# Food Classification (Yolov5) [E] --------------------------------------- 
 
 
 
@@ -65,6 +68,7 @@ female_avg = []
 
 
 
+# SQL Access (MariaDB) [S] --------------------------------------- 
 # DB 접근 후 알맞은 데이터 추출
 db = pymysql.connect(host='localhost', user='root', db='food', password='123456', charset='utf8')
 curs = db.cursor()
@@ -83,13 +87,14 @@ for i in food_eng_list:
     
     rows = curs.fetchall()
     food_name_list.append(rows)
+# SQL Access (MariaDB) [E] --------------------------------------- 
 
-print(food_data_list[0][0][1])
+
+
     
 for i in range(4):
     male_avg.append( int((food_data_list[0][0][i] + food_data_list[1][0][i] + food_data_list[2][0][i] + food_data_list[3][0][i]) / male_total_nutrient[i] * 100) )
     female_avg.append( int((food_data_list[0][0][i] + food_data_list[1][0][i] + food_data_list[2][0][i] + food_data_list[3][0][i]) / female_total_nutrient[i] * 100) )
-print(male_avg)
 
 for i in range(4):
     if male_avg[i] > 100:
