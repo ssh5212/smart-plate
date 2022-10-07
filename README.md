@@ -26,6 +26,11 @@
 - tensorflow==2.8.0
 - torch==1.7.1+cu110
 
+### 기타
+- 전국통합식품영양성분정보(음식)표준데이터(CSV)
+https://www.data.go.kr/data/15100070/standard.do
+- 음식 이미지 및 영양정보 텍스트
+https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=74
 
 ## 결과
 ![16](https://user-images.githubusercontent.com/26498125/194527942-dd95fcaf-a4c2-45a8-b758-94644d6f779c.png)
