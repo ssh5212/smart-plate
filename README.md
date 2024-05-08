@@ -37,10 +37,3 @@ https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDat
 
 ![screencapture-127-0-0-1-5500-2022-10-02-22_08_46](https://user-images.githubusercontent.com/26498125/194527965-e08e9cd2-d597-4ea9-a9ac-49f30ba58478.png)
 
-## 인원 및 역할
-- 신승헌 : 팀장, 프로젝트 총괄, 소프트웨어 구현
-- 이승희 : 하드웨어 총괄
-- 남현준 : 데이터 전처리, 문서 작업
-- 김동현 : 하드웨어 제작
-- 황민우 : 데이터 전처리
-
